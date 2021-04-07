@@ -1,17 +1,21 @@
-
-let number = Math.floor(Math.random() * 10);
-
-if ((number == 0) || (number == 1) ){
-    console.log(number+ "is prime number");
+const readline = require('readline-sync');
+let number = readline.question("Enter the number: ")
+let isPrime = true;
+if (number === 1 || number ===0) {
+    console.log("1 and 0 is neither prime nor composite number.");
 }
-else{
-    for (let i =2; i<=number; i++){
-        if (number % i == 0){
-            console.log(number + " is not a prime number : ");
+
+else if (number > 1) {
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            isPrime = false;
             break;
         }
-        else{
-            console.log(number + " is a prime number");
-        }
+    }
+
+    if (isPrime) {
+        console.log(`${number} is a prime number`);
+    } else {
+        console.log(`${number} is a not prime number`);
     }
 }
